@@ -3,11 +3,12 @@ library(tidyverse)
 library(DT)
 library(shiny)
 library(ggplot2)
-library(glue)
 library(patchwork)
 
 # defaults
-pup_read_sd = 6.0
+pup_read_sd = 6.17358373
+pup_writ_sd = 5.69410663
+pup_mat_sd = 5.38985717
 conf_level = 0.95
 #
 
@@ -215,13 +216,16 @@ shinyApp(
     div(class="container", 
       div(class="row",
         div(class="col-1",
-           HTML(glue("<div class=\"input-group mb-3\">
-                   <span class=\"input-group-text\" id=\"basic-addon1\">p</span>
-                   <input type=\"text\" class=\"form-control form-control-sm\"
-                 placeholder=\"{conf_level}\" aria-label=\"{conf_level}\"
-                 aria-describedby=\"basic-addon1\">
-                </div>"))
-        )),
+            p('p-value:')
+        ),
+        div(class="col-1",
+            numericInput(
+              "p", 
+              NULL, 
+              value = conf_level, 
+              min = 0, max = 1, step=0.05),
+            ),
+        ),
       div(class="row", 
         div(class="col",
             # plotOutput('size_x_band'),

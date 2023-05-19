@@ -264,7 +264,7 @@ generate_progress_plots <- function(year_ob, selections, ci_vals=list(A = 0.95))
       geom_text(aes(x=subject_params[[paste0('high_band_cutoff_', v)]] + 0.3,
                     label=subject_params[[paste0('high_band_cutoff_', v)]], y=0),
                 colour='blue', angle=90) +
-      coord_cartesian (xlim = c(-20,20), ylim = c(0,1200))
+      coord_cartesian (xlim = c(-20,20), ylim = c(0,1200)) +
       ggtitle(paste0(chart_title, ' (p=',p,')'))
     if (exists("range_layers")) c + range_layers
     else c

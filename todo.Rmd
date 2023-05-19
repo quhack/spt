@@ -1,0 +1,57 @@
+
+ 
+ Present data:
+ - include a summary on page of the number of changes to published bands if that ci used
+- display the calculated school sd somewhere on the page along with the pupil sd
+- add a 'generate' url function to pass details on to someone else
+- add the name of the school vertically on the plots
+- sankey showing movement of schools between bands based on methods/p-values
+
+df per year
+match based on URN and show all the results in one go
+panel at the top will be tabbed with:
+- selected schools (and either individual remove buttons , or clear)
+- all results for selected schools (including attainment) for all available years
+- all progress charts in h-scrollable panel
+- all national comparison charts in h-scrollable panel
+
+Would need matching, but for now
+- aggregate display columns and present in one table with all subjects
+- list selected schools in different tab
+- list aggregate details in different tab
+- new methodology will go in separate tab
+- p-value selection will be a dropdown within the tab
+
+
+- can create the summary charts/ tables outside of shiny processing
+
+
+ 
+
+
+
+
+
+One issue I've been getting is that because we're approximating CIs, in some cases schools can go from average to extreme above/below (and vice versa) just because of rounding.
+This is because the CIs are estimated from rounded progress values and estimated cohort size. If the upper/lower CI is very close to zero, it can go one way or the other very easily. We're more likely to see this with smaller schools.
+Also, cutoffs aren't necessarily at exact 10% value.
+
+
+
+Consider publishing:
+unrounded progress scores
+number of pupils contributing to progress score
+
+
+
+
+
+There is a noticeable lack of schools between 10 and 30 cohort size in "above" and "below" average (they are either in average, or well above/below average)
+similar effect (in fact barely noticeably different) when changing ci to 80%
+
+
+
+
+
+example of band=1 inside a band=2
+106998 + 138090

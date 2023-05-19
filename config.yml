@@ -1,0 +1,80 @@
+---
+2019:
+  url: 'https://www.find-school-performance-data.service.gov.uk/download-data?download=true&regions=0&filters=KS2&fileformat=csv&year=2018-2019&meta=false'
+  col_types:
+    RECTYPE: col_character
+    URN: col_character
+    TELIG: col_integer
+    READPROG: col_double
+    READPROG_DESCR: col_integer
+    WRITPROG: col_double
+    WRITPROG_DESCR: col_integer
+    MATPROG: col_double
+    MATPROG_DESCR: col_integer
+  displ_cols:
+    urn: URN
+    name: SCHNAME
+    'n': TELIG
+  total_col: TELIG
+  na: ['NA', 'LOWCOV', 'SUPP', ' ', '']
+  filtercol: RECTYPE
+  filtervals: ['1','2']
+  subjects:
+    Reading:
+      pupil_sd: 6.1735837
+      prog_col: &rprogcol READPROG
+      cov_col: READCOV
+      chart_cols:
+        fill: READPROG_fill
+        fun: READPROG_fun
+        prog: *rprogcol
+      displ_cols:
+        read_prog: READPROG
+        read_prog_l: READPROG_LOWER
+        read_prog_h: READPROG_UPPER
+        USER_READPROG_LOWER: USER_READPROG_LOWER_A
+        USER_READPROG_UPPER: USER_READPROG_UPPER_A
+        read_cov: READCOV
+        TREADPROG: TREADPROG
+        read_band_pub: READPROG_DESCR
+        read_band: USER_READPROG_DESCR_A
+      chart_title: 2019 Reading Progress
+    Writing:
+      pupil_sd: 5.6941066
+      prog_col: &wprogcol WRITPROG
+      cov_col: WRITCOV
+      chart_cols:
+        fill: WRITPROG_fill
+        fun: WRITPROG_fun
+        prog: *wprogcol
+      displ_cols:
+        writ_prog: WRITPROG
+        writ_prog_l: WRITPROG_LOWER
+        writ_prog_h: WRITPROG_UPPER
+        USER_WRITPROG_LOWER: USER_WRITPROG_LOWER_A
+        USER_WRITPROG_UPPER: USER_WRITPROG_UPPER_A
+        writ_cov: WRITCOV
+        TWRITPROG: TWRITPROG
+        writ_band_pub: WRITPROG_DESCR
+        writ_band: USER_WRITPROG_DESCR_A
+      chart_title: 2019 Writing Progress
+    Maths:
+      pupil_sd: 5.3898572
+      prog_col: &mprogcol MATPROG
+      cov_col: MATCOV
+      chart_cols:
+        fill: MATPROG_fill
+        fun: MATPROG_fun
+        prog: *mprogcol
+      displ_cols:
+        mat_prog: MATPROG
+        mat_prog_l: MATPROG_LOWER
+        mat_prog_h: MATPROG_UPPER
+        USER_MATPROG_LOWER: USER_MATPROG_LOWER_A
+        USER_MATPROG_UPPER: USER_MATPROG_UPPER_A
+        mat_cov: MATCOV
+        TMATPROG: TMATPROG
+        mat_band_pub: MATPROG_DESCR
+        mat_band: USER_MATPROG_DESCR_A
+      chart_title: 2019 Maths Progress
+---
